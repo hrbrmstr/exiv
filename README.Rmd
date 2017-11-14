@@ -1,0 +1,99 @@
+---
+output: rmarkdown::github_document
+---
+```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE, fig.retina=2)
+options(width=120)
+```
+
+# exiv
+
+## Description
+
+Read and Write 'Exif' Image Tags
+
+### README FIRST!!! 
+
+This package shld work on macOS and Linux systems that have the [`exiv2`](http://www.exiv2.org/) package installed.
+
+- macOS: `brew install exiv2`
+- Ubuntu/Debian `sudo apt-get install exiv2`
+
+For the time being, it needs to be easily findable. It'll be more robust when the pkg is out of Alpha status.
+
+ONLY "Standard" TAGS ARE SUPPORTED FOR THE MOMENT.
+ONLY `ascii` TAGS ARE SUPPORTED FOR THE MOMENT. Full support for all tags will be here eventually
+
+## What's Inside The Tin
+
+The following functions are implemented:
+
+- `read_exif`:	Retrieve Exif Data From An Image
+- `set_exif`:	Set Exif tag data on an image file
+- `exif_tags`:	Return a data frame of all possible Exif tags
+
+## Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/exiv")
+```
+
+## Usage
+
+```{r}
+library(exiv)
+library(tidyverse)
+
+# current verison
+packageVersion("exiv")
+```
+
+### Tags, you say?
+
+We got your tags, _right here_:
+
+```{r}
+exif_tags(filter_type="ascii")
+```
+
+### Read exif data
+
+This shld be an empty data frame:
+
+```{r}
+r_logo <- system.file("extdata", "Rlogo.png", package="exiv")
+
+read_exif(r_logo)
+```
+
+Let's move it and add some ASCII metadata!
+
+```{r}
+tf <- tempfile(fileext=".png")
+file.copy(r_logo, tf)
+
+set_exif(tf, "Exif.Image.ProcessingSoftware", "The incredibly unassuming exiv R package!")
+```
+
+Just to prove we did it:
+
+```{r}
+read_exif(tf)
+```
+
+Can I have another, then?
+
+```{r}
+set_exif(tf, "Exif.Image.ImageDescription", "The R logo. Duh!")
+```
+
+There should be two now!
+
+```{r}
+read_exif(tf)
+```
+
+
+```{r include=FALSE}
+unlink(tf)
+```
