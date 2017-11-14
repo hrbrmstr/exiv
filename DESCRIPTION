@@ -1,6 +1,6 @@
 Package: exiv
 Type: Package
-Title: exiv title goes here otherwise CRAN checks fail
+Title: Read and Write 'Exif' Image Tags
 Version: 0.1.0
 Date: 2017-11-14
 Authors@R: c(
@@ -9,9 +9,12 @@ Authors@R: c(
   )
 Author: Bob Rudis (bob@rud.is)
 Maintainer: Bob Rudis <bob@rud.is>
-Description: A good description goes here otherwise CRAN checks fail.
+Description: A wrapper around tools and functions in the 'Exiv2' <http://http://www.exiv2.org>
+    image metadat library.
 URL: https://github.com/hrbrmstr/exiv
 BugReports: https://github.com/hrbrmstr/exiv/issues
+NeedsCompilation: yes
+SystemRequirements: exiv2 library
 License: AGPL
 Suggests:
     testthat,
@@ -19,7 +22,6 @@ Suggests:
 Depends:
     R (>= 3.2.0)
 Imports:
-    purrr,
     Rcpp
 LinkingTo: Rcpp
 RoxygenNote: 6.0.1

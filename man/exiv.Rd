@@ -4,9 +4,9 @@
 \name{exiv}
 \alias{exiv}
 \alias{exiv-package}
-\title{...}
+\title{Read and Write 'Exif' Image Tags}
 \description{
-...
+Read and Write 'Exif' Image Tags
 }
 \author{
 Bob Rudis (bob@rud.is)

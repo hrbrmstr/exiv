@@ -3,6 +3,5 @@
 export(exif_tags)
 export(read_exif)
 export(set_exif)
-import(purrr)
 importFrom(Rcpp,sourceCpp)
 useDynLib(exiv)
