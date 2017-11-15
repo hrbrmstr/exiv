@@ -1,0 +1,17 @@
+VERSION=0.26
+R_COMPILED_BY ?= -4.6.3
+CXXSTD=CXX11
+
+RWINLIB=../windows/exiv2-$(VERSION)
+BUILD=${subst gcc ,-,${R_COMPILED_BY}}${R_ARCH}
+
+PKG_CPPFLAGS=-I$(RWINLIB)/include -DSTRICT_R_HEADERS
+PKG_LIBS= -L$(RWINLIB)/lib${BUILD} -lexiv2 -lxmp -lexpat -liconv -lz -lws2_32 -lpsapi
+
+all: clean winlibs
+
+winlibs:
+	"${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" "../tools/winlibs.R" $(VERSION)
+
+clean:
+	rm -f $(SHLIB) $(OBJECTS)
