@@ -1,1 +1,2 @@
-PKG_LIBS = -lexiv2
+PKG_CXXFLAGS = -I/usr/include/taglib -I/usr/local/include/taglib
+PKG_LIBS = -lexiv2 -ltag

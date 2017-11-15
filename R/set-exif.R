@@ -1,6 +1,16 @@
-#' Set Exif tag data on an image/media file
+#' Set Exif tag data on an image  file
 #'
-#' CURRENTLY ONLY HANDLES ASCII
+#' Set metadata entries on image files. Support is planned for the components of
+#' [these reference tables](http://www.exiv2.org/metadata.html) that are able to be
+#' crafted from within R.
+#'
+#' Currently only handles:
+#' - `ascii`
+#' - `comment`
+#' - `long`
+#' - `short`
+#' - `srational`
+#' - `rational`
 #'
 #' @md
 #' @param x path to image file

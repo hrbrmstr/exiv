@@ -2,7 +2,7 @@
 % Please edit documentation in R/set-exif.R
 \name{set_exif}
 \alias{set_exif}
-\title{Set Exif tag data on an image/media file}
+\title{Set Exif tag data on an image  file}
 \usage{
 set_exif(x, tag, val)
 }
@@ -17,5 +17,18 @@ set_exif(x, tag, val)
 data frame of image Exif values
 }
 \description{
-CURRENTLY ONLY HANDLES ASCII
+Set metadata entries on image files. Support is planned for the components of
+\href{http://www.exiv2.org/metadata.html}{these reference tables} that are able to be
+crafted from within R.
+}
+\details{
+Currently only handles:
+\itemize{
+\item \code{ascii}
+\item \code{comment}
+\item \code{long}
+\item \code{short}
+\item \code{srational}
+\item \code{rational}
+}
 }

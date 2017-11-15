@@ -3,22 +3,23 @@
 
 ## Description
 
-Read and Write ‘Exif’ Image/Media Tags
+Read and Write ‘Exif’, ‘ID3v1’ and ‘ID3v2’ Image/Media Tags
 
 ### README FIRST\!\!\!
 
 This package shld work on macOS and Linux systems that have the
-[`exiv2`](http://www.exiv2.org/) package installed.
+[`exiv2`](http://www.exiv2.org/) and
+[`taglib`](https://github.com/taglib/taglib) packages installed:
 
-  - macOS: `brew install exiv2`
-  - Ubuntu/Debian `sudo apt-get install exiv2`
+  - macOS: `brew install taglib exiv2`
+  - Ubuntu/Debian `sudo apt-get install exiv2 libtag1-dev`
 
-For the time being, it needs to be easily findable. It’ll be more robust
-when the pkg is out of Alpha status.
+For the time being, they need to be easily findable. It’ll be more
+robust when the pkg is out of Alpha status.
 
-ONLY “Standard” TAGS ARE SUPPORTED FOR THE MOMENT.
+ONLY “Standard” Exif TAGS ARE SUPPORTED FOR THE MOMENT.
 
-Value types currently supported:
+Value Exif types currently supported:
 
   - `ascii`
   - `long`
@@ -31,8 +32,8 @@ Value types currently supported:
 
 The following functions are implemented:
 
-  - `read_exif`: Retrieve Exif data from an image/media file
-  - `set_exif`: Set Exif tag data on an image/media file
+  - `read_exif`: Retrieve Exif data from an image file
+  - `set_exif`: Set Exif tag data on an image file
   - `exif_tags`: Return a data frame of all possible Exif tags
 
 ## Installation
@@ -192,4 +193,4 @@ set_exif(tf, "Exif.Photo.DateTimeOriginal", as.character(Sys.time()))
     ## 4        Exif.Image.YResolution                              4294967294/3  Rational
     ## 5      Exif.Image.RatingPercent                                        30     Short
     ## 6            Exif.Image.ExifTag                                       154      Long
-    ## 7   Exif.Photo.DateTimeOriginal                       2017-11-15 06:09:06     Ascii
+    ## 7   Exif.Photo.DateTimeOriginal                       2017-11-15 06:37:54     Ascii
