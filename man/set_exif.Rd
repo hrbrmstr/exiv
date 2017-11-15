@@ -2,7 +2,7 @@
 % Please edit documentation in R/set-exif.R
 \name{set_exif}
 \alias{set_exif}
-\title{Set Exif tag data on an image file}
+\title{Set Exif tag data on an image/media file}
 \usage{
 set_exif(x, tag, val)
 }

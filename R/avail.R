@@ -1,4 +1,4 @@
-#' Return a data frame of all possible Exif tags
+#' Return a data frame of all possible Exif tags (WIP)
 #'
 #' @md
 #' @param filter_key a regular expression to filter key names by. If `NULL` then

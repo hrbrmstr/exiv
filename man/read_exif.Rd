@@ -2,7 +2,7 @@
 % Please edit documentation in R/read-exif.R
 \name{read_exif}
 \alias{read_exif}
-\title{Retrieve Exif Data From An Image}
+\title{Retrieve Exif data from an image/media file}
 \usage{
 read_exif(x)
 }

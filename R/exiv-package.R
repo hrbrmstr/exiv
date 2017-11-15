@@ -1,4 +1,4 @@
-#' Read and Write 'Exif' Image Tags
+#' Read and Write 'Exif' Image/Media Tags
 #'
 #' @name exiv
 #' @docType package

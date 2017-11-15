@@ -1,4 +1,4 @@
-#' Retrieve Exif Data From An Image
+#' Retrieve Exif data from an image/media file
 #'
 #' FEEDBACK WELCOME/ENCOURAGED FOR WHAT THIS SHOULD RETURN
 #'

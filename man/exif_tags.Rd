@@ -2,7 +2,7 @@
 % Please edit documentation in R/avail.R
 \name{exif_tags}
 \alias{exif_tags}
-\title{Return a data frame of all possible Exif tags}
+\title{Return a data frame of all possible Exif tags (WIP)}
 \usage{
 exif_tags(filter_key = NULL, filter_type = NULL)
 }
@@ -18,5 +18,5 @@ if \code{NULL} then all types will be considered.}
 data frame
 }
 \description{
-Return a data frame of all possible Exif tags
+Return a data frame of all possible Exif tags (WIP)
 }

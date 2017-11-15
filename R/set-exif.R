@@ -1,4 +1,4 @@
-#' Set Exif tag data on an image file
+#' Set Exif tag data on an image/media file
 #'
 #' CURRENTLY ONLY HANDLES ASCII
 #'

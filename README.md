@@ -3,7 +3,7 @@
 
 ## Description
 
-Read and Write ‘Exif’ Image Tags
+Read and Write ‘Exif’ Image/Media Tags
 
 ### README FIRST\!\!\!
 
@@ -31,8 +31,8 @@ Value types currently supported:
 
 The following functions are implemented:
 
-  - `read_exif`: Retrieve Exif Data From An Image
-  - `set_exif`: Set Exif tag data on an image file
+  - `read_exif`: Retrieve Exif data from an image/media file
+  - `set_exif`: Set Exif tag data on an image/media file
   - `exif_tags`: Return a data frame of all possible Exif tags
 
 ## Installation
@@ -176,7 +176,7 @@ set_exif(tf, "Exif.Image.YResolution", c(-2, 3))
     ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!     Ascii
     ## 2         Exif.Image.ImageWidth                                      1000     SLong
     ## 3   Exif.Image.ImageDescription                          The R logo. Duh!     Ascii
-    ## 4        Exif.Image.YResolution                                      -2/3 SRational
+    ## 4        Exif.Image.YResolution                              4294967294/3  Rational
     ## 5      Exif.Image.RatingPercent                                        30     Short
 
 ``` r
@@ -189,7 +189,7 @@ set_exif(tf, "Exif.Photo.DateTimeOriginal", as.character(Sys.time()))
     ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!     Ascii
     ## 2         Exif.Image.ImageWidth                                      1000     SLong
     ## 3   Exif.Image.ImageDescription                          The R logo. Duh!     Ascii
-    ## 4        Exif.Image.YResolution                                      -2/3 SRational
+    ## 4        Exif.Image.YResolution                              4294967294/3  Rational
     ## 5      Exif.Image.RatingPercent                                        30     Short
     ## 6            Exif.Image.ExifTag                                       154      Long
-    ## 7   Exif.Photo.DateTimeOriginal                       2017-11-14 22:29:46     Ascii
+    ## 7   Exif.Photo.DateTimeOriginal                       2017-11-15 06:09:06     Ascii
