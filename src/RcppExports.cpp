@@ -28,10 +28,64 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// int_set_exif_long
+void int_set_exif_long(std::string path, std::string key, long int value);
+RcppExport SEXP _exiv_int_set_exif_long(SEXP pathSEXP, SEXP keySEXP, SEXP valueSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type path(pathSEXP);
+    Rcpp::traits::input_parameter< std::string >::type key(keySEXP);
+    Rcpp::traits::input_parameter< long int >::type value(valueSEXP);
+    int_set_exif_long(path, key, value);
+    return R_NilValue;
+END_RCPP
+}
+// int_set_exif_short
+void int_set_exif_short(std::string path, std::string key, long int value);
+RcppExport SEXP _exiv_int_set_exif_short(SEXP pathSEXP, SEXP keySEXP, SEXP valueSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type path(pathSEXP);
+    Rcpp::traits::input_parameter< std::string >::type key(keySEXP);
+    Rcpp::traits::input_parameter< long int >::type value(valueSEXP);
+    int_set_exif_short(path, key, value);
+    return R_NilValue;
+END_RCPP
+}
+// int_set_exif_rational
+void int_set_exif_rational(std::string path, std::string key, int32_t p, int32_t q);
+RcppExport SEXP _exiv_int_set_exif_rational(SEXP pathSEXP, SEXP keySEXP, SEXP pSEXP, SEXP qSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type path(pathSEXP);
+    Rcpp::traits::input_parameter< std::string >::type key(keySEXP);
+    Rcpp::traits::input_parameter< int32_t >::type p(pSEXP);
+    Rcpp::traits::input_parameter< int32_t >::type q(qSEXP);
+    int_set_exif_rational(path, key, p, q);
+    return R_NilValue;
+END_RCPP
+}
+// int_set_exif_urational
+void int_set_exif_urational(std::string path, std::string key, uint32_t p, uint32_t q);
+RcppExport SEXP _exiv_int_set_exif_urational(SEXP pathSEXP, SEXP keySEXP, SEXP pSEXP, SEXP qSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type path(pathSEXP);
+    Rcpp::traits::input_parameter< std::string >::type key(keySEXP);
+    Rcpp::traits::input_parameter< uint32_t >::type p(pSEXP);
+    Rcpp::traits::input_parameter< uint32_t >::type q(qSEXP);
+    int_set_exif_urational(path, key, p, q);
+    return R_NilValue;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_exiv_int_get_exif", (DL_FUNC) &_exiv_int_get_exif, 1},
     {"_exiv_int_set_exif_ascii", (DL_FUNC) &_exiv_int_set_exif_ascii, 3},
+    {"_exiv_int_set_exif_long", (DL_FUNC) &_exiv_int_set_exif_long, 3},
+    {"_exiv_int_set_exif_short", (DL_FUNC) &_exiv_int_set_exif_short, 3},
+    {"_exiv_int_set_exif_rational", (DL_FUNC) &_exiv_int_set_exif_rational, 4},
+    {"_exiv_int_set_exif_urational", (DL_FUNC) &_exiv_int_set_exif_urational, 4},
     {NULL, NULL, 0}
 };
 

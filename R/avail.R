@@ -20,7 +20,8 @@ exif_tags <- function(filter_key=NULL, filter_type=NULL) {
   }
 
   .exiv_keys[
-    grepl(filter_key, .exiv_keys$key) & (.exiv_keys$type %in% filter_type),
+    grepl(filter_key, .exiv_keys$key, ignore.case = TRUE) &
+      (.exiv_keys$type %in% filter_type),
   ]
 
 }

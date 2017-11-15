@@ -16,9 +16,16 @@ This package shld work on macOS and Linux systems that have the
 For the time being, it needs to be easily findable. It’ll be more robust
 when the pkg is out of Alpha status.
 
-ONLY “Standard” TAGS ARE SUPPORTED FOR THE MOMENT. ONLY `ascii` TAGS ARE
-SUPPORTED FOR THE MOMENT. Full support for all tags will be here
-eventually
+ONLY “Standard” TAGS ARE SUPPORTED FOR THE MOMENT.
+
+Value types currently supported:
+
+  - `ascii`
+  - `long`
+  - `short`
+  - `rational`
+  - `srational`
+  - `comment`
 
 ## What’s Inside The Tin
 
@@ -94,10 +101,10 @@ file.copy(r_logo, tf)
 set_exif(tf, "Exif.Image.ProcessingSoftware", "The incredibly unassuming exiv R package!")
 ```
 
-    ## # A tibble: 1 x 2
-    ##                        exif_key                                  exif_val
-    ##                           <chr>                                     <chr>
-    ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!
+    ## # A tibble: 1 x 3
+    ##                        exif_key                                  exif_val exif_type
+    ##                           <chr>                                     <chr>     <chr>
+    ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!     Ascii
 
 Just to prove we did it:
 
@@ -105,10 +112,10 @@ Just to prove we did it:
 read_exif(tf)
 ```
 
-    ## # A tibble: 1 x 2
-    ##                        exif_key                                  exif_val
-    ##                           <chr>                                     <chr>
-    ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!
+    ## # A tibble: 1 x 3
+    ##                        exif_key                                  exif_val exif_type
+    ##                           <chr>                                     <chr>     <chr>
+    ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!     Ascii
 
 Can I have another, then?
 
@@ -116,11 +123,11 @@ Can I have another, then?
 set_exif(tf, "Exif.Image.ImageDescription", "The R logo. Duh!")
 ```
 
-    ## # A tibble: 2 x 2
-    ##                        exif_key                                  exif_val
-    ##                           <chr>                                     <chr>
-    ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!
-    ## 2   Exif.Image.ImageDescription                          The R logo. Duh!
+    ## # A tibble: 2 x 3
+    ##                        exif_key                                  exif_val exif_type
+    ##                           <chr>                                     <chr>     <chr>
+    ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!     Ascii
+    ## 2   Exif.Image.ImageDescription                          The R logo. Duh!     Ascii
 
 There should be two now\!
 
@@ -128,8 +135,61 @@ There should be two now\!
 read_exif(tf)
 ```
 
-    ## # A tibble: 2 x 2
-    ##                        exif_key                                  exif_val
-    ##                           <chr>                                     <chr>
-    ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!
-    ## 2   Exif.Image.ImageDescription                          The R logo. Duh!
+    ## # A tibble: 2 x 3
+    ##                        exif_key                                  exif_val exif_type
+    ##                           <chr>                                     <chr>     <chr>
+    ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!     Ascii
+    ## 2   Exif.Image.ImageDescription                          The R logo. Duh!     Ascii
+
+Some numerics:
+
+``` r
+set_exif(tf, "Exif.Image.ImageWidth", 1000)
+```
+
+    ## # A tibble: 3 x 3
+    ##                        exif_key                                  exif_val exif_type
+    ##                           <chr>                                     <chr>     <chr>
+    ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!     Ascii
+    ## 2         Exif.Image.ImageWidth                                      1000     SLong
+    ## 3   Exif.Image.ImageDescription                          The R logo. Duh!     Ascii
+
+``` r
+set_exif(tf, "Exif.Image.RatingPercent", 30)
+```
+
+    ## # A tibble: 4 x 3
+    ##                        exif_key                                  exif_val exif_type
+    ##                           <chr>                                     <chr>     <chr>
+    ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!     Ascii
+    ## 2         Exif.Image.ImageWidth                                      1000     SLong
+    ## 3   Exif.Image.ImageDescription                          The R logo. Duh!     Ascii
+    ## 4      Exif.Image.RatingPercent                                        30     Short
+
+``` r
+set_exif(tf, "Exif.Image.YResolution", c(-2, 3))
+```
+
+    ## # A tibble: 5 x 3
+    ##                        exif_key                                  exif_val exif_type
+    ##                           <chr>                                     <chr>     <chr>
+    ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!     Ascii
+    ## 2         Exif.Image.ImageWidth                                      1000     SLong
+    ## 3   Exif.Image.ImageDescription                          The R logo. Duh!     Ascii
+    ## 4        Exif.Image.YResolution                                      -2/3 SRational
+    ## 5      Exif.Image.RatingPercent                                        30     Short
+
+``` r
+set_exif(tf, "Exif.Photo.DateTimeOriginal", as.character(Sys.time()))
+```
+
+    ## # A tibble: 7 x 3
+    ##                        exif_key                                  exif_val exif_type
+    ##                           <chr>                                     <chr>     <chr>
+    ## 1 Exif.Image.ProcessingSoftware The incredibly unassuming exiv R package!     Ascii
+    ## 2         Exif.Image.ImageWidth                                      1000     SLong
+    ## 3   Exif.Image.ImageDescription                          The R logo. Duh!     Ascii
+    ## 4        Exif.Image.YResolution                                      -2/3 SRational
+    ## 5      Exif.Image.RatingPercent                                        30     Short
+    ## 6            Exif.Image.ExifTag                                       154      Long
+    ## 7   Exif.Photo.DateTimeOriginal                       2017-11-14 22:29:46     Ascii

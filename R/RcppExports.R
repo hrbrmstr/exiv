@@ -9,3 +9,19 @@ int_set_exif_ascii <- function(path, key, value) {
     invisible(.Call('_exiv_int_set_exif_ascii', PACKAGE = 'exiv', path, key, value))
 }
 
+int_set_exif_long <- function(path, key, value) {
+    invisible(.Call('_exiv_int_set_exif_long', PACKAGE = 'exiv', path, key, value))
+}
+
+int_set_exif_short <- function(path, key, value) {
+    invisible(.Call('_exiv_int_set_exif_short', PACKAGE = 'exiv', path, key, value))
+}
+
+int_set_exif_rational <- function(path, key, p, q) {
+    invisible(.Call('_exiv_int_set_exif_rational', PACKAGE = 'exiv', path, key, p, q))
+}
+
+int_set_exif_urational <- function(path, key, p, q) {
+    invisible(.Call('_exiv_int_set_exif_urational', PACKAGE = 'exiv', path, key, p, q))
+}
+

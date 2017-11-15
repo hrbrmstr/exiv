@@ -10,8 +10,11 @@ read_exif(x)
 \item{x}{path to image file}
 }
 \value{
-data frame or \code{NULL} if no Exif data is present
+data frame or \code{NULL} if no Exif data is present. This does mean that all the
+values are conv are \code{toString()}-ified on the C++ side. This could easily return
+a named list of real values. Not sure how to handle it, but there are also
+other pkgs for handing this.
 }
 \description{
-Retrieve Exif Data From An Image
+FEEDBACK WELCOME/ENCOURAGED FOR WHAT THIS SHOULD RETURN
 }

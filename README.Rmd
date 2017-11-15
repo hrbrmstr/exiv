@@ -22,7 +22,15 @@ This package shld work on macOS and Linux systems that have the [`exiv2`](http:/
 For the time being, it needs to be easily findable. It'll be more robust when the pkg is out of Alpha status.
 
 ONLY "Standard" TAGS ARE SUPPORTED FOR THE MOMENT.
-ONLY `ascii` TAGS ARE SUPPORTED FOR THE MOMENT. Full support for all tags will be here eventually
+
+Value types currently supported:
+
+- `ascii`
+- `long`
+- `short`
+- `rational`
+- `srational`
+- `comment`
 
 ## What's Inside The Tin
 
@@ -93,6 +101,14 @@ There should be two now!
 read_exif(tf)
 ```
 
+Some numerics:
+
+```{r}
+set_exif(tf, "Exif.Image.ImageWidth", 1000)
+set_exif(tf, "Exif.Image.RatingPercent", 30)
+set_exif(tf, "Exif.Image.YResolution", c(-2, 3))
+set_exif(tf, "Exif.Photo.DateTimeOriginal", as.character(Sys.time()))
+```
 
 ```{r include=FALSE}
 unlink(tf)

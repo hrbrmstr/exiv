@@ -11,7 +11,7 @@ set_exif(x, tag, val)
 
 \item{tag}{Exif tag name to set (full \code{Title.Case.Dotted} name)}
 
-\item{val}{Exif tag value}
+\item{val}{Exif tag value; \code{rational} should be a two element numeric vector}
 }
 \value{
 data frame of image Exif values
