@@ -12,7 +12,7 @@ This package shld work on macOS and Linux systems that have the
 [`taglib`](https://github.com/taglib/taglib) packages installed:
 
   - macOS: `brew install taglib exiv2`
-  - Ubuntu/Debian `sudo apt-get install exiv2 libtag1-dev`
+  - Ubuntu/Debian `sudo apt-get install libexiv2-dev exiv2 libtag1-dev`
 
 For the time being, they need to be easily findable. It’ll be more
 robust when the pkg is out of Alpha status.
