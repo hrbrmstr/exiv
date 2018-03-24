@@ -17,7 +17,7 @@ Read and Write 'Exif', 'ID3v1' and 'ID3v2' Image/Media Tags
 This package shld work on macOS and Linux systems that have the [`exiv2`](http://www.exiv2.org/) and [`taglib`](https://github.com/taglib/taglib) packages installed:
 
 - macOS: `brew install taglib exiv2`
-- Ubuntu/Debian `sudo apt-get install exiv2 libtag1-dev`
+- Ubuntu/Debian `sudo apt-get install libexiv2-dev exiv2 libtag1-dev`
 
 For the time being, they need to be easily findable. It'll be more robust when the pkg is out of Alpha status.
 
