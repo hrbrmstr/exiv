@@ -24,7 +24,7 @@ List int_get_exif(std::string path) {
 
     Exiv2::ExifData &exifData = image->exifData();
 
-    if (exifData.empty()) return(NULL);
+    if (exifData.empty()) return(R_NilValue);
 
     Exiv2::ExifData::const_iterator end = exifData.end();
 
